@@ -1,0 +1,10 @@
+/* Importação dos módulos CSS */
+
+/* 1. VARIÁVEIS */
+@import url("variables.css");
+
+/* 2. RESET */
+@import url("reset.css"); 
+
+/* 3. FORM-BASE */
+@import url("form-base.css");

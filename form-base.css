@@ -1,0 +1,446 @@
+/* ===========================================
+    FORMULÁRIO GERAL
+=========================================== */
+
+/* ===== CONTAINER & LAYOUT DE FORMULÁRIO ===== */
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.form-container.wide {
+    max-width: 800px;
+}
+
+.form-container.narrow {
+    max-width: 500px;
+}
+
+/* === FORM HEADER === */
+.form-header {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    background: var(--gradient);
+    text-align: center;
+    color: var(--text-light);
+}
+
+.form-header.simple {
+    padding: var(--space-sm);
+    gap: var(--space-sm);
+}
+
+.form-header.minimal {
+    background: transparent;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-dark);
+}
+
+.form-header a {
+    text-decoration: underline;
+}
+
+.form-header p,
+.form-header small {
+    margin: 0;
+    opacity: 0.9;
+}
+
+/* === BASE FORM === */
+.smart-form {
+    padding: var(--space-xl);
+}
+
+.smart-form.compact {
+    padding: var(--space-lg);
+}
+
+/* === FIELDSETS === */
+fieldset {
+    border: 1px solid #55271446;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-lg);
+    padding: var(--space-lg);
+}
+
+fieldset.borderless {
+    border: none;
+    padding: var(--space-lg) 0;
+    font-size: var(--text-xs);
+}
+
+legend {
+    font-weight: var(--font-weight-medium);
+    padding: 0 var(--space-xs);
+}
+
+/* === FIELD GROUPS === */
+.field-group {
+    margin-bottom: var(--space-sm);
+    position: relative;
+}
+
+.field-group:last-child {
+    margin-bottom: 0;
+}
+
+.field-group.inline {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: flex-end;
+}
+
+.field-group.inline>div {
+    flex: 1;
+}
+
+/* === LABELS === */
+label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: var(--font-weight-medium);
+}
+
+label a {
+    text-decoration: underline;
+}
+
+.required {
+    color: var(--error-color);
+}
+
+/* === INPUTS === */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="tel"],
+input[type="url"],
+input[type="number"],
+input[type="date"],
+input[type="file"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-xs);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: var(--shadow);
+}
+
+/* Estilo do texto dentro das entradas de dados */
+input::placeholder,
+textarea::placeholder,
+select,
+input[type="date"] {
+    color: var(--secondary-color);
+    opacity: 0.7;
+}
+
+/* Classe que será adicionada ao html pelo js quando o campo estiver inválido */
+input.is-invalid,
+select.is-invalid,
+textarea.is-invalid,
+.file-upload-input.is-invalid {
+    border-color: var(--error-color);
+}
+
+/* === CHECKBOXES & RADIOS === */
+.checkbox-group,
+.radio-group {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-sm);
+    position: relative;
+}
+
+.checkbox-group:last-child,
+.radio-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Ocultar inputs nativos */
+input[type="checkbox"],
+input[type="radio"] {
+    opacity: 0;
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+    margin: 0;
+    z-index: 2;
+}
+
+/* Checkbox e radio customizado */
+.checkbox,
+.radio {
+    width: var(--space-sm);
+    height: var(--space-sm);
+    cursor: pointer;
+    flex-shrink: 0;
+    background-color: var(--bg-light);
+    border: 1px solid var(--border-dark);
+    border-radius: 3px;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    margin-top: 0.3rem;
+}
+
+/* Ícone de check */
+.checkbox::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.8rem;
+    height: 0.8rem;
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='m13.854 3.646-7.5 7.5a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6 10.293l7.146-7.147a.5.5 0 0 1 .708.708z'/%3e%3c/svg%3e");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.5);
+    transition: all 0.15s ease;
+}
+
+/* Estados do checkbox e radio */
+input[type="checkbox"]:checked+.checkbox,
+input[type="radio"]:checked+.radio {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+input[type="checkbox"]:checked+.checkbox::after,
+input[type="radio"]:checked+.radio::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"]:focus+.checkbox,
+input[type="radio"]:focus+.radio {
+    box-shadow: var(--shadow);
+}
+
+input[type="checkbox"]:disabled+.checkbox,
+input[type="radio"]:disabled+.radio {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Radio customizado */
+.radio {
+    border-radius: var(--radius);
+}
+
+.checkbox-group label,
+.radio-group label {
+    margin: 0;
+    cursor: pointer;
+    font-weight: normal;
+    line-height: 1.5;
+}
+
+/* === CUSTOM SELECT === */
+select {
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right var(--space-xs) center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+/* === TEXTAREA === */
+textarea {
+    resize: vertical;
+}
+
+/* === FILE INPUT CUSTOM === */
+.file-upload-input {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: var(--space-xs);
+    border: 1px solid var(--border-dark);
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.file-upload-input input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.file-upload-input .bi-upload {
+    font-size: var(--text-md);
+    margin-left: auto;
+    padding-right: var(--space-xs);
+}
+
+.file-name {
+    flex-grow: 1;
+    color: var(--secondary-color);
+    opacity: 0.7;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adiciona '...' se o texto for muito longo */
+}
+
+/* === ERROR MESSAGES === */
+.error-message {
+    font-size: var(--text-sm);
+    color: var(--error-color);
+    margin-top: var(--space-xs);
+    display: none;
+}
+
+/* === PASSWORD STRENGTH INDICATOR === */
+.password-strength {
+    display: block;
+    margin-top: var(--space-xs);
+    font-size: var(--text-sm);
+}
+
+.strength-indicator {
+    height: 4px;
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0%;
+    transition: all 0.3s ease;
+    border-radius: var(--radius);
+}
+
+.strength-text {
+    font-size: var(--text-sm);
+    display: block;
+    margin-top: var(--space-xs);
+}
+
+.strength-weak {
+    background-color: var(--error-color);
+    width: 33%;
+}
+
+.strength-weak-text {
+    color: var(--error-color);
+}
+
+.strength-medium {
+    background-color: var(--warning-color);
+    width: 66%;
+}
+
+.strength-medium-text {
+    color: var(--warning-color); 
+}
+
+.strength-strong {
+    background-color: var(--success-color);
+    width: 100%;
+}
+
+.strength-strong-text {
+    color: var(--success-color); 
+}
+
+/* === SUCCESS MESSAGES == */
+.success-message {
+    background-color: var(--bg-success);
+    color: var(--text-success);
+    padding: var(--space-sm);
+    border-radius: var(--radius);
+    margin-bottom: var(--space-sm);
+    display: none;
+}
+
+/* === FORM BOTÕES */
+.form-buttons {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-lg);
+    flex-wrap: wrap;
+}
+
+.form-buttons.center {
+    justify-content: center;
+}
+
+.form-buttons.stack {
+    flex-direction: column;
+}
+
+@media (max-width: 480px) {
+
+    .form-header {
+        padding: var(--space-xl);
+    }
+
+    .smart-form {
+        padding: var(--space-lg);
+    }
+
+    .smart-form.compact {
+        padding: var(--space-md);
+    }
+
+    .smart-form.compact {
+        padding: var(--space-md);
+    }
+
+    .form-buttons:not(.stack) {
+        flex-direction: column;
+    }
+
+    .field-group.inline {
+        flex-direction: column;
+        gap: 0;
+    }
+
+}
+
+/* === ANIMAÇÕES === */
+.field-group {
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

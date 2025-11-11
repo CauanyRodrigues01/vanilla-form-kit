@@ -1,27 +1,48 @@
-# 📦 SmartForm.js: Classe Javascript Pura para Gestão Inteligente de Formulários
+# 📦 Vanilla-Form-Kit: Solução Completa e Modular para Formulários (JS Puro)
 
 ![Badge de Status - Exemplo: Versão 1.0.0](https://img.shields.io/badge/Status-Estável-brightgreen)
 ![Badge de Licença - Exemplo](https://img.shields.io/badge/Licença-MIT-blue)
 
-O `SmartForm.js` é uma classe pura em Javascript, **independente de frameworks**, projetada para centralizar e simplificar o gerenciamento de qualquer formulário HTML. Ele separa as preocupações de validação, limpeza e submissão, permitindo que você se concentre na lógica de negócio.
+**[Soluções sólidas, código com propósito.]**
 
-## ✨ Por Que Usar SmartForm?
+O **Vanilla-Form-Kit** é uma solução *frontend* completa e modular que oferece a base para construir formulários robustos e consistentes. Ele combina a **Classe JS `SmartForm`** para toda a lógica (*validação e limpeza*) com um **Sistema CSS** reutilizável para a apresentação (*UI/UX*).
 
-Cansado de reescrever a mesma lógica de validação e limpeza de dados em todo projeto? Esta solução foca na produtividade e na qualidade do código (DRY - Don't Repeat Yourself), abstraindo as complexidades de UX e garantindo que o seu *backend* receba dados limpos e validados.
+## ✨ Por Que Usar o Vanilla-Form-Kit?
 
-### Recursos Principais:
+Cansado de reescrever lógica de validação **e** estilização de formulários? Este Kit oferece produtividade e qualidade (DRY), entregando um formulário pronto, validado e limpo.
 
-* **Validação Total:** Suporta validações nativas do HTML5 (`required`, `email`, `minlength`, etc.) e permite regras de validação customizadas (`addFieldRule`).
-* **Limpeza de Dados (Cleaners):** Funções genéricas e customizáveis que garantem a formatação correta dos dados (ex: `email` em *lower case*, remoção de espaços extras, etc.) antes da submissão.
-* **Controle de Submissão:** Gerencia o estado `isSubmitting`, desabilitando o botão de envio e evitando múltiplos cliques durante o processo assíncrono.
-* **UX Aprimorada:** Validação opcional em **`blur`** e **`input`**, e foco automático no primeiro campo inválido após a tentativa de envio.
-* **Arquitetura Sólida:** Mensagens de erro injetadas dinamicamente via JS.
+### A. Lógica Sólida com `SmartForm.js`
+
+* **Validação Total:** Suporta validações nativas do HTML5 e permite regras customizadas (`addFieldRule`).
+* **Limpeza de Dados (Cleaners):** Funções genéricas e customizáveis que garantem que o *backend* receba dados formatados e limpos.
+* **Controle de Submissão:** Gerencia o estado `isSubmitting` e evita múltiplos envios de forma inteligente.
+* **UX Aprimorada:** Validação opcional em **`blur`** e **`input`**, e foco automático no erro.
+
+### B. Estilos Reutilizáveis e Modularidade (UI/UX)
+
+O módulo CSS é estruturado para consistência e facilidade de manutenção:
+
+| Módulo CSS | Propósito Primário (O Que Faz) | Dependência Essencial | Reutilização em Outros Projetos? |
+| :--- | :--- | :--- | :--- |
+| **`variables.css`** | **Alicerce da Identidade Visual.** Define constantes como cores, espaçamentos (`var(--space-sm)`) e tipografia. É o ponto central para customização do projeto. | N/A (É o definidor) | **Universal.** Pode ser o ponto de partida de estilo para **qualquer projeto** seu. |
+| **`reset.css`** | **Consistência Cross-Browser.** Neutraliza os estilos padrão dos navegadores, eliminando diferenças indesejadas e garantindo um ponto de partida limpo para o *layout* a partir das definições em (`variables.css`). | **`variables.css`** | **Universal.** Ideal para ser usado como base de estilo para **qualquer projeto**. |
+| **`form-base.css`** | **Componentização da UI.** Estiliza a estrutura do formulário (containers, *field groups*, inputs, etc.) e implementa o feedback visual de erro (`.is-invalid`, `.error-message`) gerado pela classe `SmartForm.js`. | **`variables.css`** | **Componente Específico.** Reutilizável em projetos que adotem a mesma **estrutura HTML** de formulário e importem suas variáveis. |
+
+**Resultado:** Um formulário visualmente profissional e funcional, pronto para o uso.
 
 ## 🚀 Como Usar
 
 ### 1. Instalação
 
-Inclua o arquivo `SmartForm.js` no seu projeto (ou use-o como um módulo ES6).
+Copie todos os arquivos .js e .css para o seu projeto. Inclua o link de estilo e os scripts no seu HTML da seguinte forma:
+
+```html
+<link rel="stylesheet" href="style.css"> 
+
+<script type="module" src="smart-form.js"></script>
+<script type="module" src="demo.js"></script>
+
+Para usar a classe SmartForm em qualquer arquivo JavaScript do seu projeto, utilize a sintaxe de importação do módulo ES6:
 
 ```javascript
 // Exemplo de importação
@@ -82,8 +103,10 @@ formularioDeContato
 
 ## 🤝 Contribuição e Licença
 
-Sinta-se à vontade para abrir **Issues** ou enviar **Pull Requests** para melhorias\!
+Sinta-se à vontade para abrir **Issues** ou enviar **Pull Requests** para melhorias\! Sugestões de novos cleaners ou validações customizadas são sempre bem-vindas.
 
 Este projeto está sob a Licença MIT.
 
 ## ❤ Construído por [Cauany Rodrigues](https://www.linkedin.com/in/cauany-rodrigues-78700b193/)
+
+Se você gostou desta abordagem de código com propósito e soluções sólidas, conecte-se comigo no LinkedIn para acompanhar outros projetos e aprendizados!
