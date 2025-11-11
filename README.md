@@ -41,6 +41,7 @@ Copie todos os arquivos .js e .css para o seu projeto. Inclua o link de estilo e
 
 <script type="module" src="smart-form.js"></script>
 <script type="module" src="demo.js"></script>
+````
 
 Para usar a classe SmartForm em qualquer arquivo JavaScript do seu projeto, utilize a sintaxe de importação do módulo ES6:
 
